@@ -15,8 +15,12 @@ function loadcourseTableBody() {
                 // let cell4 = row.insertCell(3);
                 cell1.innerText = course.id;
                 cell2.innerText = course.dept;
-                cell3.innerText = course.courseName;
-                // cell4.innerText = course.username;
+              
+                const anchor = document.createElement('a');
+                anchor.innerText = course.courseName;
+                anchor.href = './details.html';
+              
+                cell3.appendChild(anchor);
             })
         })
 }
