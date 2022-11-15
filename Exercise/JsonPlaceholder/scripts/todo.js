@@ -16,9 +16,16 @@ function todoBtnClicked() {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            // const messageDiv = $q("#message-div")
             titleParagraph.innerText = `Task: ${data.title}`;
-            completedSpan.innerText = data.completed;
+            // ternary operator
+            completedSpan.innerText = data.completed == true ? "Task Completed" : "Not Done!"
+           
+            // if (data.completed == true) {
+            //     completedSpan.innerText = "Task Complete";
+            // } else {
+            //     completedSpan.innerText = "Not Done!";
+            // }
+
         })
 }
 
