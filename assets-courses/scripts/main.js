@@ -19,7 +19,6 @@ function loadcourseTableBody() {
                 const anchor = document.createElement('a');
                 anchor.innerText = course.courseName;
                 anchor.href = `./details.html?courseid=${course.id}`;
-              
                 cell3.appendChild(anchor);
             })
         })
@@ -29,3 +28,7 @@ function loadcourseTableBody() {
 window.onload = () => {
     loadcourseTableBody()
 }
+
+
+
+// first.forEach(second => {third})
