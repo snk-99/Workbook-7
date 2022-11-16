@@ -5,39 +5,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Document</title>
 </head>
 
-<body>
-    <form>
-        <label for="course-num">Course Number</label>
-        <input type="number" name="course-num" id="course-num">
+<body class="position-static d-block p-5 bg-success bg-opacity-25">
+    <div class="modal-dialog bg-light rounded-4 " role="document">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
 
-        <label for="cdepartment-list">Choose A Department</label>
-        <select name="department-name" id="department-list">
-            <option>Select...</option>
-            <option value="CompSci">CompSci</option>
-            <option value="Math">Math</option>
-            <option value="English">English</option>
-            <option value="Finance">Finance</option>
-        </select>
+                <h1 class="fw-bold mb-0 fs-2">Course Info</h1>
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            </div>
 
-        <label for="course-name">Course Name</label>
-        <input type="text" id="course-name">
+            <div class="modal-body p-5 pt-0">
+                <form>
+                    <div class="form-floating mb-3">
+                        <input type="number" name="course-num" id="course-num" class="form-control rounded-3">
+                        <label for="course-num">Course Number</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select name="department-name" id="department-list" class="form-control rounded-3">
+                            <option>Select...</option>
+                            <option value="CompSci">CompSci</option>
+                            <option value="Math">Math</option>
+                            <option value="English">English</option>
+                            <option value="Finance">Finance</option>
+                        </select>
+                        <label for="cdepartment-list">Choose A Department</label>
 
-        <label for="instructor">Instructor Name</label>
-        <input type="text" id="instructor">
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" id="course-name" class="form-control rounded-3">
+                        <label for="course-name">Course Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" id="instructor" class="form-control rounded-3">
+                        <label for="instructor">Instructor Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="date" id="start-date" class="form-control rounded-3">
+                        <label for="start-date">Start Date</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="number" id="num-days" class="form-control rounded-3">
+                        <label for="num-days">Course Duration</label>
+                    </div>
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-        <label for="start-date">Start Date</label>
-        <input type="date" id="start-date">
-
-        <label for="num-days">Course Duration</label>
-        <input type="number" id="num-days">
-
-        <button>Delete</button>
-        <p id="message-to-user"></p>
-    </form>
     <script src="./scripts/delete-course.js"></script>
 </body>
 
