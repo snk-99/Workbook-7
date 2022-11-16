@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="course-num">Course Number</label>
+        <input type="number" name="course-num" id="course-num">
+
+        <label for="cdepartment-list">Choose A Department</label>
+        <select name="department-name" id="department-list">
+            <option>Select...</option>
+            <option value="CompSci">CompSci</option>
+            <option value="Math">Math</option>
+            <option value="English">English</option>
+            <option value="Finance">Finance</option>
+        </select>
+
+        <label for="course-name">Course Name</label>
+        <input type="text" id="course-name">
+
+        <label for="instructor">Instructor Name</label>
+        <input type="text" id="instructor">
+
+        <label for="start-date">Start Date</label>
+        <input type="date" id="start-date">
+
+        <label for="num-days">Course Duration</label>
+        <input type="number" id="num-days">
+
+        <button>Save</button>
+        <p id="message-to-user"></p>
+    </form>
+    <script src="./scripts/edit-course.js"></script>
+</body>
+
+</html>
