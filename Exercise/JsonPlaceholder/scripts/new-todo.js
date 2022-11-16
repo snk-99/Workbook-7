@@ -15,7 +15,7 @@
             completed: completedCheckbox.checked
         }
 
-        fetch("http://localhost:8888/todos", {
+        fetch("http://localhost:8888/todos/", {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -25,6 +25,7 @@
             .then(response => response.json())
             .then(todo => {
                 console.log(todo);
+                window.location = "./todos.html"
                 messageToUser.innerText = "Successfully Saved"
             })
             .catch(err => {

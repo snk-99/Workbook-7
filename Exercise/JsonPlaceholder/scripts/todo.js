@@ -1,35 +1,48 @@
-// let todoBtn = document.getElementById('todo-btn');
-// let todoInput = document.getElementById('todo-input');
-// let messageDiv = document.getElementById('message-div');
-// let status = document.getElementById('status');
+(() => {
+    const $q = (s) => document.querySelector(s);
 
-//same as code above
-//helper function
-const $q = (selector) => document.querySelector(selector)
+    const tbody = $q("#todos-table tbody");
 
-function todoBtnClicked() {
-    const userId = $q("#todo-input").value;
-    const completedSpan = $q("#todo-card span");
-    const titleParagraph = $q("#todo-card p");
+    function loadData() {
+        return fetch("http://localhost:8888/todos/").then(response => response.json());
+    }
 
-    fetch(`http://localhost:8888/todos/${userId}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            titleParagraph.innerText = `Task: ${data.title}`;
-            // ternary operator
-            completedSpan.innerText = data.completed == true ? "Task Completed" : "Not Done!"
-           
-            // if (data.completed == true) {
-            //     completedSpan.innerText = "Task Complete";
-            // } else {
-            //     completedSpan.innerText = "Not Done!";
-            // }
+    function createEditLink(todo) {
+        const a = document.createElement("a");
+        a.href = "./edit-todo.html?id=" + todo.id;
+        a.innerText = "Edit"
+        return a;
+    }
 
-        })
-}
+    function createDeleteBtn(todo) {
+        const deleteBtn = document.createElement("button");
+        deleteBtn.type = "submit"
+        deleteBtn.innerText = "X"
+        return deleteBtn;
+    }
 
-window.onload = () => {
-    const todoBtn = $q("#todo-btn");
-    todoBtn.onclick = todoBtnClicked;
-}
+    function fillTable(todos) {
+        for (const todo of todos) {
+            const row = tbody.insertRow(-1);
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            let cell4 = row.insertCell(3);
+
+            cell1.innerText = todo.title;
+            cell2.innerHTML = todo.completed ? "&#10003;" : null;
+            const a = createEditLink(todo);
+            cell3.appendChild(a);
+
+            const deleteBtn = createDeleteBtn(todo)
+            cell4.appendChild(deleteBtn)
+
+        }
+    }
+
+    window.onload = () => {
+        loadData().then(data => fillTable(data))
+    }
+
+
+})()
