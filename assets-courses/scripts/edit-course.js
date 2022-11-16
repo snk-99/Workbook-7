@@ -50,7 +50,7 @@
                 courseNumber.value = course.courseNum;
                 courseNameInput.value = course.courseName;
                 instructorInput.value = course.instructor;
-                startDate.value = course.startDate;
+                startDate.value = new Date(course.startDate).toISOString().substr(0, 10);
                 courseDuration.value = course.numDays;
             })
     }

@@ -46,9 +46,9 @@
 
             const editAnchor = createEditBtn(course);
             cell4.appendChild(editAnchor);
-
+            cell4.appendChild(document.createTextNode(' | '))
             const deleteAnchor = createDeleteBtn(course);
-            cell5.appendChild(deleteAnchor);
+            cell4.appendChild(deleteAnchor);
         })
     }
 

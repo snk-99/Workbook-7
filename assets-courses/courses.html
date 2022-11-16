@@ -10,21 +10,28 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 
-<body>
-    <a href="./new-course.html">
-        <button type="button" class="btn btn-info" id="add-new-course">Add New Course</button>
-    </a>
-    <table class="table table-striped" id="course-table">
-        <thead class="table-success">
-            <tr>
-                <th scope="col">Course Number</th>
-                <th scope="col">Title</th>
-                <th scope="col">Department</th>
-                <th scope="col">Edit</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+<body class="position-static d-block p-5 bg-success bg-opacity-25">
+
+    <div class="modal-content rounded-4 shadow bg-light">
+        <div class="d-flex justify-content-end p-2">
+            <a href="./new-course.html">
+                <button type="button" class="btn btn-info" id="add-new-course">Add New Course</button>
+            </a>
+        </div>
+        <table class="table table-striped" id="course-table">
+            <thead>
+                <tr>
+                    <th scope="col">Course Number</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider"></tbody>
+        </table>
+
+    </div>
+
     <script src="./scripts/main.js"></script>
 </body>
 
