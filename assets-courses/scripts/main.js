@@ -1,6 +1,7 @@
 (() => {
     const $q = (s) => document.querySelector(s);
     const courseTableBody = $q('#course-table tbody');
+    const successAlert = $q("#success-alert")
 
     function loadCourses() {
         return fetch('http://localhost:8888/courses')
@@ -51,8 +52,28 @@
             cell4.appendChild(deleteAnchor);
         })
     }
+    function displayAlert() {
+        if (sessionStorage.message) {
+            console.log(sessionStorage.message);
+            successAlert.innerText = sessionStorage.message;
+            successAlert.style = "display-block";
+        }
+    }
+
+    function removeAlert() {
+        if (sessionStorage.message) {
+            // console.log(sessionStorage.message);
+            // const successAlert = $q("#success-alert")
+            successAlert.innerText = "";
+            sessionStorage.removeItem("message");
+            successAlert.style.display = "none";
+
+        }
+    }
 
     window.onload = () => {
         loadCourses().then(data => loadcourseTableBody(data))
+        displayAlert()
+        setTimeout(removeAlert, 4000)
     }
 })()

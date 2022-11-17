@@ -34,7 +34,7 @@
             .then(course => {
                 console.log(course);
                 window.location = "./courses.html"
-                messageToUser.innerText = "Successfully Saved"
+                sessionStorage.message = `${course.courseName} is now Updated`
 
             })
             .catch(err => {
