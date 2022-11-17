@@ -21,6 +21,8 @@
             .then(course => {
                 console.log(course);
                 window.location = "./courses.html"
+                sessionStorage.message = `Course has been deleted`
+                // console.log(course.courseName)
                 // messageToUser.innerText = "Successfully Saved"
 
             })
